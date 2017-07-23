@@ -1,0 +1,24 @@
+{
+    "name": "mcashp/magento2-module-affiliate",
+    "description": "Integrates the MCASHP affiliate program with Magento2",
+    "version": "1.0.0",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "LCASHP",
+            "email": "30377133+lcashp@users.noreply.github.com",
+            "homepage": "https://www.mcashp.com/register/850"
+        }
+    ],
+    "require": {
+        "mcashp/magento2-module-core": "~1.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Mcashp\\Affiliate\\": ""
+        }
+    }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+	<extension_attributes for="Magento\Customer\Api\Data\CustomerInterface">
+		<attribute code="mcashp_tracking" type="Mcashp\Affiliate\Api\Data\TrackingInterface"/>
+    </extension_attributes>
+	<extension_attributes for="Magento\Quote\Api\Data\CartInterface">
+		<attribute code="mcashp_tracking" type="Mcashp\Affiliate\Api\Data\TrackingInterface"/>
+    </extension_attributes>
+	<extension_attributes for="Magento\Sales\Api\Data\OrderInterface">
+		<attribute code="mcashp_tracking" type="Mcashp\Affiliate\Api\Data\TrackingInterface"/>
+		<attribute code="mcashp_commission" type="Mcashp\Affiliate\Api\Data\CommissionInterface"/>
+    </extension_attributes>
+	<extension_attributes for="Magento\Sales\Api\Data\InvoiceInterface">
+		<attribute code="mcashp_tracking" type="Mcashp\Affiliate\Api\Data\TrackingInterface"/>
+		<attribute code="mcashp_commission" type="Mcashp\Affiliate\Api\Data\CommissionInterface"/>
+    </extension_attributes>
+</config>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <type name="Magento\Framework\App\FrontControllerInterface">
+        <plugin name="mcashp_affiliate_front_controller_redirect" type="Mcashp\Affiliate\Model\App\FrontController\RedirectPlugin"/>
+    </type>
+    <type name="Magento\Quote\Api\CartRepositoryInterface">
+        <plugin name="mcashp_affiliate_quote_cart_save" type="Mcashp\Affiliate\Model\Quote\CartSavePlugin"/>
+    </type>
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+        <plugin name="mcashp_affiliate_sales_order_save" type="Mcashp\Affiliate\Model\Sales\OrderSavePlugin"/>
+    </type>
+</config>

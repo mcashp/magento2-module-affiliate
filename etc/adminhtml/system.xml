@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="mcashp" sortOrder="1000" translate="label">
+			<label>MCASHP</label>
+		</tab>
+		<section id="mcashpaffiliate" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="0" translate="label">
+			<label>Affiliate</label>
+			<tab>mcashp</tab>
+			<resource>Mcashp_Affiliate::config_mcashp_affiliate</resource>
+			<group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="0" translate="label">
+				<label>Affiliate Options</label>
+				<field id="active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Enabled</label>
+					<comment/>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="commission" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>Commission</label>
+					<comment>Commission in percent (ie 10.5 for 10.5%)</comment>
+                    <validate>validate-number validate-not-negative-number</validate>
+				</field>
+				<field id="cookie_lifetime" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="text">
+					<label>Cookie lifetime</label>
+					<comment>Cookie lifetime in weeks (2 - 6240)</comment>
+                    <validate>validate-digits validate-not-negative-number</validate>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>
