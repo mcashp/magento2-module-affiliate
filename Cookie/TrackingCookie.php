@@ -14,10 +14,9 @@ use Mcashp\Affiliate\Helper\AffiliateHelper;
  */
 class TrackingCookie
 {
-    /**
-     * Name of cookie that holds private content version
-     */
-    const COOKIE_NAME = AffiliateHelper::CONFIG_COOKIE_NAME;
+    const COOKIE_NAME         = AffiliateHelper::CONFIG_COOKIE_NAME;
+
+    const COOKIE_LIFETIME_MP  = AffiliateHelper::CONFIG_COOKIE_LIFETIME_MP;
 
 
     /**
@@ -78,11 +77,12 @@ class TrackingCookie
         } elseif ($lifetime > $lifetimeMax) {
             $lifetime = $lifetimeMax;
         }
+        $lifetime = (int) $lifetime * self::COOKIE_LIFETIME_MP;
 
         $metadata = $this
             ->_cookieMetadataFactory
             ->createPublicCookieMetadata()
-            ->setDuration((int) $lifetime * 604800)
+            ->setDuration($lifetime)
             ->setPath('/')
         ;
 

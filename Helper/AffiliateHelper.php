@@ -17,31 +17,8 @@ use Mcashp\Affiliate\Cookie\TrackingCookie;
  *
  * @package Mcashp\Affiliate\Helper
  */
-class AffiliateHelper extends AbstractHelper
+class AffiliateHelper extends AbstractHelper implements AffiliateHelperInterface
 {
-    /**
-     * Attributes
-     */
-    const ATTRIBUTE_TRACKING       = 'mcashp_tracking';
-    const ATTRIBUTE_TRACKING_REGEX = '/^[0-9a-zA-Z_-]{1,35}$/';
-
-    const ATTRIBUTE_COMMISSION = 'mcashp_commission';
-
-    /**
-     * Configuration
-     */
-    const CONFIG_ACTIVE = 'mcashpaffiliate/general/active';
-
-    const CONFIG_COMMISSION     = 'mcashpaffiliate/general/commission';
-    const CONFIG_COMMISSION_MIN = 3;
-    const CONFIG_COMMISSION_MAX = 100;
-
-    const CONFIG_COOKIE_NAME         = 'mcps';
-    const CONFIG_COOKIE_LIFETIME     = 'mcashpaffiliate/general/cookie_lifetime';
-    const CONFIG_COOKIE_LIFETIME_MIN = 4;
-    const CONFIG_COOKIE_LIFETIME_MAX = 6240;
-
-
     /**
      * @var \Magento\Framework\App\Config\ScopeConfigInterface
      */
@@ -110,11 +87,30 @@ class AffiliateHelper extends AbstractHelper
     }
 
     /**
+     * @param string $config
+     * @param string $scope
+     *
+     * @return mixed
+     */
+    protected function getConfig($config, $scope = ScopeInterface::SCOPE_STORE)
+    {
+        return $this->_scopeConfig->getValue($config, $scope);
+    }
+
+    /**
      * @return bool
      */
     public function getConfigActive()
     {
         return (bool) $this->getConfig(self::CONFIG_ACTIVE);
+    }
+
+    /**
+     * @return bool
+     */
+    public function getConfigTest()
+    {
+        return (bool) $this->getConfig(self::CONFIG_TEST);
     }
 
     /**
@@ -131,17 +127,6 @@ class AffiliateHelper extends AbstractHelper
     public function getConfigCookieLifetime()
     {
         return $this->getConfig(self::CONFIG_COOKIE_LIFETIME);
-    }
-
-    /**
-     * @param string $config
-     * @param string $scope
-     *
-     * @return mixed
-     */
-    protected function getConfig($config, $scope = ScopeInterface::SCOPE_STORE)
-    {
-        return $this->_scopeConfig->getValue($config, $scope);
     }
 
     /**
@@ -198,6 +183,7 @@ class AffiliateHelper extends AbstractHelper
         }
 
         $this->_trackingCookie->set($tracking);
+
         $this->setCustomerTracking($customerId, $tracking);
         $this->setQuoteTracking($quoteId, $tracking);
     }
@@ -347,6 +333,7 @@ class AffiliateHelper extends AbstractHelper
             'tracking' => $tracking,
             'payout_amount' => $payoutAmount,
             'payout_amount_format' => $payoutAmountFormat,
+            'test' => $this->getConfigTest() ? 1 : 0,
         );
 
         $url = 'https://www.mcashp.com/api/' . $apiKey . '/stats/new';

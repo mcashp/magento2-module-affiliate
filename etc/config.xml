@@ -3,7 +3,8 @@
 	<default>
 		<mcashpaffiliate>
 			<general>
-				<active/>
+				<active>0</active>
+				<test>1</test>
 				<commission>10.5</commission>
 				<cookie_lifetime>4</cookie_lifetime>
 			</general>

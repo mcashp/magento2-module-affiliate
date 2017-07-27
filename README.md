@@ -6,6 +6,10 @@ The payouts are automatically handled by the [MCASHP affiliate and marketing pla
 It's possible to run your own instance of MCASHP as whitelabel.
 For more information and support contact us by mail (hilfe@mcashp.com) or via user support form at [https://www.mcashp.com/](https://www.mcashp.com/register/850).
 
+## Requirements
+- [MCASHP webmaster account](https://www.mcashp.com/register/850)
+- Magento 2 ([module for Magento1 here](https://github.com/mcashp/magento-module-affiliate))
+
 ## Installation
 
 #### Require module

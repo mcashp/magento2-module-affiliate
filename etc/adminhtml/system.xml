@@ -4,7 +4,7 @@
 		<tab id="mcashp" sortOrder="1000" translate="label">
 			<label>MCASHP</label>
 		</tab>
-		<section id="mcashpaffiliate" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="0" translate="label">
+		<section id="mcashpaffiliate" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label">
 			<label>Affiliate</label>
 			<tab>mcashp</tab>
 			<resource>Mcashp_Affiliate::config_mcashp_affiliate</resource>
@@ -14,6 +14,11 @@
 					<label>Enabled</label>
 					<comment/>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="test" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="select">
+					<label>Test mode</label>
+					<comment>Commissions will not be generated but simulated.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 				</field>
 				<field id="commission" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
 					<label>Commission</label>

@@ -43,11 +43,11 @@ class OrderSavePlugin
      */
     public function saveTracking(Order $order)
     {
-        if ($order->getEntityId() || $order->getMcashpTracking()) {
+        if ( ! $this->_affiliateHelper->getConfigActive()) {
             return;
         }
 
-        if ( ! $this->_affiliateHelper->getConfigActive()) {
+        if ($order->getEntityId() || $order->getMcashpTracking()) {
             return;
         }
 
